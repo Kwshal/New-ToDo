@@ -4,18 +4,26 @@ let taskList = document.getElementById("task-list");
 
 function addTask() {
     if (input.value.trim() !== "") {
-
+        // gather data
         let task = input.value;
         let li = document.createElement("li");
-        li.innerText = task;
-        li.contentEditable = true;
+        let span = document.createElement("span");
+        li.innerHTML = task;
+        li.appendChild(span);
 
-        li.addEventListener("keydown", (e) => {
-            if (e.key === "Enter") {
-                e.preventDefault(); // Stop default behavior
-                input.focus(); // Bring focus back to input
-            }
+        // make it editable
+        li.addEventListener("dblclick", () => {
+            li.contentEditable = true;
         });
+        li.addEventListener("blur", () => {
+            li.contentEditable = false;
+        });
+        li.addEventListener("click", (e) => {
+            // li.style.textDecoration = "line-through";
+            li.classList.toggle("checked");
+            e.target.querySelector("span").classList.toggle("draw");
+        });
+        // append it
         taskList.appendChild(li);
         input.value = "";
         console.log(task);
@@ -26,4 +34,7 @@ input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         addTask();
     }
+});
+input.addEventListener("blur", () => {
+    addTask();
 });
