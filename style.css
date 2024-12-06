@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-family: open sans, sans-serif;
+    /* width: clamp(300px, 50%, 1000px); */
+}
+
+
+header, main {
+    width: clamp(300px, 50%, 500px);
+
+}
+main {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    height: 90vh;
+    padding: 0 20px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    background-color: #fff7f7;
+
+}
+
+header {
+    height: 10vh;
+    flex-wrap: 1;
+    padding: 0 20px;
+    /* background-color: rgb(24, 107, 103); */
+    background-color: rgb(180, 180, 180);
+    /* background: linear-gradient(to right, #227cca, #162074); */
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+header>h1 {
+    color: #222;
+    padding: none;
+    display: inline;
+}
+
+header>ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+
+header>ul>li {
+    /* margin-left: 20px;
+    padding-left: 20px; */
+    border-left: 2px solid #ffffff80;
+    /* padding: 20px 0; */
+}
+
+header>ul>li>a {
+    /* text-decoration: none; */
+    color: white;
+}
+
+/* main */
+main ul {
+    list-style: none;
+    padding: 0;
+}
+
+main ul>li:has(input:checked) {
+    text-decoration: line-through;
+}
+
+ul li:has(input:checked) button {
+    display: inline;
+}
+
+/* ... existing code ... */
+
+input {
+    /* border: 2px solid #b8b8b8; */
+    border: none;
+    outline: none;
+    background-color: #9494941a;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    width: clamp(300px, 50%, 1000px);
+    box-sizing: border-box;
+
+}
+
+/* ... existing code ... */
+
+#add-btn {
+    display: inline;
+}
+
+button {
+    display: none;
+    /* text-decoration: none !important; */
+
+}
+
+hr {
+    margin: 10px 0;
+    border: 1px solid #afafaf;
+    width: 100%;
+}
+
