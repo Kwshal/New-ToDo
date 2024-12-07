@@ -1,15 +1,26 @@
 :root {
-    --peach-light: #ffccbb; /* Light peach */
-    --peach-medium: #ff8f7f; /* Medium peach */
-    --peach-dark: #ff5a3c;   /* Dark peach */
+    --peach-light: #ffccbb;
+    /* Light peach */
+    --peach-medium: #ff8f7f;
+    /* Medium peach */
+    --peach-dark: #ff5a3c;
+    /* Dark peach */
     --coral: #ff6f61;
-    --peach-lightest: #fff2e6; /* Very light peach */
-    --peach-light: #ffd9cc;    /* Light peach */
-    --peach-soft: #ffcc99;     /* Soft peach */
-    --peach-pastel: #ffb3a6;   /* Pastel peach */
-    --peach-cream: #ffe6cc;    /* Peach cream */  
+    --peach-lightest: rgb(251, 255, 239);
+    /* Very light peach */
+    --peach-light: #ffd9cc;
+    /* Light peach */
+    --peach-soft: #ffcc99;
+    /* Soft peach */
+    --peach-pastel: #ffb3a6;
+    /* Pastel peach */
+    --peach-cream: #ffe6cc;
+    /* Peach cream */
+    --bgc: #ffffff;
+    --color: #000000;
     --color-primary: #000000;
     --color-secondary: #666666;
+    --color-tertiary: #00000088;
 }
 
 
@@ -28,14 +39,14 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     font-family: open sans, sans-serif;
 }
 
 
 
 main {
-    width: clamp(300px, 90%, 380px);
+    width: clamp(300px, 90%, 350px);
 
 }
 
@@ -43,34 +54,56 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: start;
+    /* align-items: center; */
     gap: 10px;
     height: 100%;
     padding: 20px;
-    border: 2px solid var(--bd-color);
-    
-    border-radius: 4px;
-    background: linear-gradient(150deg, var(--peach-cream), var(--peach-lightest));
+    /* border: 3px solid var(--peach-light); */
+    border: 2px solid var(--color);
 
+    border-radius: 12px;
+   /* background: linear-gradient(180deg, var(--peach-pastel), var(--peach-lightest)); */
+    background-color: var(--peach-cream);
 }
 
 main ul {
+    height: 100%;
+    width: 100%;
+    /* background-color: #ffffff23; */
     list-style: circle outside;
-    padding: 0 0 0 20px;
+    padding: 0 0 0 25px;
     overflow: auto;
     scrollbar-width: none;
     position: relative;
-    /* border-top: 1px solid #000; */
+    /* border-top: 1px solid rgba(255, 255, 255, 0.4); */
+    /* border-bottom: 1px solid var(--peach-pastel); */
+    border-radius: 6px;
+    /* box-shadow: inset 0 5px 15px -5px #ffffff30; */
+    /* background-color: var(--peach-light); */
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    /* font-size: large; */
+    text-overflow: ellipsis;
+    text-wrap: wrap;
 }
+
+/* main ul>li::marker {
+    color: var(--peach-);
+} */
 p {
-    color: var(--color-primary);
+    color: var(--color);
     padding: none;
-    font-size: 1.2em;
+    font-size: 1.9em;
 }
 
 main ul>li {
-    padding: 2px 0;
+    text-wrap: wrap;
+    /* overflow: hidden; */
+    text-overflow: hidden;
+    padding: 3px 0 0 10px;
     position: relative;
+    overflow-wrap: break-word;
 }
+
 .checked {
     /* text-decoration: line-through; */
     list-style: "✓  " outside;
@@ -84,25 +117,31 @@ main ul>li {
 ::selection {
     background-color: var(--peach-medium);
     /* background-color: #fff2e6; */
-    color: var(--color-secondary);
+    color: var(--color);
+    /* padding: 0 5px;
+    border-radius: 5px; */
 }
 
 input {
     border: none;
-    /* border: 1px solid #000; */
+    /* border: 2px solid #000; */
     outline: none;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 1);
     padding: 10px 15px;
-    border-radius: 4px;
+    border-radius: 12px;
     font-size: 16px;
     width: 100%;
     box-sizing: border-box;
     position: relative;
 }
 
+input::placeholder {
+    color: var(--color-secondary);
+}
+
 span {
-    height: .3px;
-    background-color: var(--color-secondary);
+    height: 1px;
+    background-color: var(--color);
     position: relative;
     bottom: 11px;
     border: none;

@@ -7,9 +7,9 @@ function addTask() {
         // gather data
         let task = input.value;
         let li = document.createElement("li");
-        let span = document.createElement("span");
+        // let span = document.createElement("span");
+        // li.appendChild(span);
         li.innerHTML = task;
-        li.appendChild(span);
 
         // make it editable
         li.addEventListener("dblclick", () => {
@@ -28,6 +28,11 @@ function addTask() {
         input.value = "";
         console.log(task);
     }
+}
+
+function deleteTask() {
+    taskList.innerHTML = "";
+    input.value = "";
 }
 
 input.addEventListener("keydown", (e) => {
