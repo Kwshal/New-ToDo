@@ -11,9 +11,25 @@
 
 <body>
     <main>
-        <p>Stay Organized, <br> Stay Ahead! <button>+</button></p>
-        <input placeholder="Enter your tasks!" type="text" id="task-inp">
-        <ul id="task-list"></ul>
+        <button class="tooltip">!</button>
+        <p>
+            - Enter your Tasks!
+        </p>
+        <p class="tooltip-text">
+            - Swipe left to delete a task <br>
+            - Swipe right to mark a task as completed
+
+        </p>
+        <!-- <input placeholder="Enter your tasks!" type="text" id="task-inp"> -->
+        <!-- <div class="btn-container">
+        <button onclick="addTask()" class="btn" id="add-btn">+</button> -->
+        <!-- <button onclick="addTask()" class="btn" id="add-btn">Add New</button>
+        <button onclick="deleteTask()" class="btn" id="remove-btn">Remove Completed</button> -->
+        <!-- <button onclick="deleteTask()" class="btn" id="remove-btn">–</button> -->
+        <!-- </div> -->
+        <ul id="task-list">
+            <li class="task"></li>
+        </ul>
     </main>
 </body>
 
