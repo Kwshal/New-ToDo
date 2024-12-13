@@ -2,3 +2,8 @@ swipe left and right both removes it
 no logic for marking done
 no code for adding new task if 0 tasks
 
+- New empty task border draws with animaiton
+- If user deletes the last completed task prompt for calling it a day, if yes give star else add 3 new empty tasks.
+- If there's no empty task, add a new empty tasks
+- counter is a fraction that counts how many tasks are done out all non empty tasks.
+- 3dot menu will contain options like delete-all-tasks (new page), delete-all-done-tasks (clean up a bit), delete-all-empty-tasks

@@ -37,7 +37,7 @@ body {
 
 main {
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -48,6 +48,12 @@ main {
     border: 2px solid var(--color);
     border-radius: 12px;
     background-color: var(--maroon-pinkish);
+}
+
+h1,
+h5 {
+    color: var(--maroon-soft);
+    text-align: center;
 }
 
 main #task-list {
@@ -61,17 +67,12 @@ main #task-list {
     border-radius: 6px;
     word-break: break-all;
     word-wrap: break-word;
-}
-
-p {
-    color: var(--color);
-    font-size: 1.9em;
-    line-height: 1em;
+    /* border: 1px solid #000; */
 }
 
 main #task-list li {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     /* padding-top: 5px; */
     position: relative;
@@ -79,14 +80,17 @@ main #task-list li {
     /* border: 1px solid #000; */
 }
 
-main #task-list>li>input[type="checkbox"], main #task-list>li>.delete-button {
+
+main #task-list>li>input[type="checkbox"],
+main #task-list>li>.delete-button {
     margin-top: 7px;
 }
 
 main #task-list>li>.task {
     /* display: flex;
     align-items: center; */
-    padding: 3px 0 0 0px;
+    min-height: 21px;
+    padding: 2px 0 0 0px;
     display: inline-block;
     color: var(--maroon-muted);
     /* position: relative; */
@@ -96,9 +100,21 @@ main #task-list>li>.task {
     border-radius: 0px;
     font-size: 13px;
     line-height: 18px;
+    animation: expand 0.4s linear 1 forwards;
 
 
 }
+
+@keyframes expand {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
 
 #task-list li:has(input[type="checkbox"]:checked) label {
     text-decoration: line-through;
@@ -113,6 +129,9 @@ main #task-list>li>.task {
 
 input[type="checkbox"] {
     /* appearance: none; */
+    height: 13px;
+    width: 13px;
+
     accent-color: var(--maroon-soft);
     /* background-color: var(--maroon-light); */
     border: 1px solid #000;
@@ -120,7 +139,7 @@ input[type="checkbox"] {
     outline: none;
     /* border-radius: 50%; */
     display: inline;
-    margin-right: 10px;
+    margin-right: 5px;
     /* z-index: 99; */
 }
 
@@ -141,7 +160,7 @@ input[type="checkbox"]:not(:checked) {
     justify-content: center;
     align-items: center;
     font-size: 12px;
-    /* background-color: var(--maroon-light); */
+    background-color: transparent;
     color: var(--maroon-soft);
     height: 13px;
     width: 13px;
@@ -151,6 +170,19 @@ input[type="checkbox"]:not(:checked) {
     /* display: inline; */
     margin-left: 5px;
     /* z-index: 99; */
+}
+
+.new-taskpage-button {
+    border: none;
+    outline: none;
+    background-color: var(--maroon-soft);
+    color: var(--maroon-pinkish);
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 40%;
+    box-sizing: border-box;
+    position: relative;
 }
 
 input#task-inp {
