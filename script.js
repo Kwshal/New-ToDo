@@ -20,7 +20,6 @@ function appendTask() {
             done.innerText = 0;
             total.innerText = 0;
         }
-
     })
     let task = document.createElement("label");
     task.className = "task";
@@ -30,21 +29,31 @@ function appendTask() {
     li.appendChild(checkbox);
     li.appendChild(task);
 
-    task.addEventListener("click", () => {
+    task.addEventListener("click", makeEditable);
+    function makeEditable() {
         task.contentEditable = "true"; // Make the task editable
         task.focus(); // Focus on the task for immediate editing
-    });
-    task.addEventListener("blur", () => task.contentEditable = false);
+        return task.contentEditable;
+    }
+    task.addEventListener("blur", () => !makeEditable);
 
     checkbox.addEventListener("change", () => {
+        if (task.textContent.trim().length === 0) {
+            checkbox.checked = false; // Prevent striking through empty tasks
+            return;
+        }
 
         if (checkbox.checked) {
             li.appendChild(deleteButton);
+            task.contentEditable = false;
+            task.removeEventListener("click", makeEditable)
         } else {
             li.removeChild(deleteButton);
+            task.contentEditable = true;
+            task.addEventListener("click", makeEditable)
         }
 
-        progressFunc();
+        updateProgress();
     });
 
     task.addEventListener("input", () => {
@@ -55,7 +64,7 @@ function appendTask() {
             }, 100);
             appendTask();
         }
-        progressFunc();
+        updateProgress();
     });
 
     taskList.appendChild(li);
@@ -65,7 +74,7 @@ appendTask();
 
 let done = document.getElementById("done-task-count");
 let total = document.getElementById("total-task-count");
-function progressFunc() {
+function updateProgress() {
     let countDone = 0;
     let tasks = [...document.querySelectorAll(".task")];
 
@@ -87,5 +96,15 @@ function progressFunc() {
 }
 
 
-
+document.getElementById("main").addEventListener("click", () => {
+    // add new task when no empty task
+    let tasks = Array.from(document.querySelectorAll(".task")); // get all taskList
+    if (tasks.every(task => task.textContent.trim().length > 0) && taskList.children.length > 0) {
+        setTimeout(() => {
+            appendTask();
+        }, 100);
+        appendTask();
+    }
+    updateProgress();
+});
 
