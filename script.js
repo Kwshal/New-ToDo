@@ -1,5 +1,6 @@
 let taskList = document.getElementById("task-list");
 
+
 function appendTask() {
     let taskList = document.getElementById("task-list");
     let li = document.createElement("li");
@@ -92,19 +93,14 @@ function updateProgress() {
     let countTotal = tasks.filter(task => task.textContent.trim().length > 0).length;
     total.innerText = countTotal;
 
-    // console.log(countDone, countTotal);
+    if (countTotal === countDone) {
+        done.style.color = "var(--maroon-muted)";
+        total.style.color = "var(--maroon-muted)";;
+    } else {
+        done.style.color = "var(--maroon-soft)";
+        total.style.color = "var(--maroon-soft)";;
+    }
 }
 
 
-document.getElementById("main").addEventListener("click", () => {
-    // add new task when no empty task
-    let tasks = Array.from(document.querySelectorAll(".task")); // get all taskList
-    if (tasks.every(task => task.textContent.trim().length > 0) && taskList.children.length > 0) {
-        setTimeout(() => {
-            appendTask();
-        }, 100);
-        appendTask();
-    }
-    updateProgress();
-});
 

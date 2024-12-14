@@ -24,7 +24,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -37,7 +37,7 @@ body {
 
 main {
     width: 100%;
-    max-width: 300px;
+    max-width: 350px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -83,7 +83,7 @@ main #task-list li {
 
 main #task-list>li>input[type="checkbox"],
 main #task-list>li>.delete-button {
-    margin-top: 7px;
+    margin-top: 5px;
 }
 
 main #task-list>li>.task {
@@ -98,8 +98,8 @@ main #task-list>li>.task {
     overflow-wrap: break-word;
     border-bottom: 1.5px solid var(--maroon-muted);
     border-radius: 0px;
-    font-size: 13px;
-    line-height: 18px;
+    font-size: 14px;
+    line-height: 17px;
     animation: expand 0.4s linear 1 forwards;
 
 
@@ -129,14 +129,14 @@ main #task-list>li>.task {
 
 input[type="checkbox"] {
     /* appearance: none; */
-    height: 13px;
-    width: 13px;
+    height: 14px;
+    width: 14px;
 
     accent-color: var(--maroon-soft);
     /* background-color: var(--maroon-light); */
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     /* border: none; */
-    outline: none;
+    /* outline: none; */
     /* border-radius: 50%; */
     display: inline;
     margin-right: 5px;
@@ -146,12 +146,22 @@ input[type="checkbox"] {
 input[type="checkbox"]:not(:checked) {
     background-color: var(--maroon-pinkish);
     border: 1px solid var(--maroon-muted);
-    height: 13px;
-    width: 13px;
+    height: 14px;
+    width: 14px;
     border-radius: 2px;
     aspect-ratio: 1;
 
     appearance: none;
+}
+input[type="checkbox"]:checked {
+    background-color: var(--maroon-soft);
+    border: 1px solid var(--maroon-muted);
+    height: 14px;
+    width: 14px;
+    border-radius: 2px;
+    aspect-ratio: 1;
+
+    /* appearance: none; */
 }
 
 .delete-button {
@@ -162,8 +172,8 @@ input[type="checkbox"]:not(:checked) {
     font-size: 12px;
     background-color: transparent;
     color: var(--maroon-soft);
-    height: 13px;
-    width: 13px;
+    height: 14px;
+    width: 14px;
     outline: none;
     border: none;
     border-radius: 20px;
@@ -202,9 +212,6 @@ input#task-inp::placeholder {
     color: var(--maroon-pinkish);
 }
 
-/*? input#task-inp:focus {
-    background-color: var(--maroon-muted);
-} */
 
 
 [contenteditable=true] {
