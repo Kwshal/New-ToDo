@@ -16,7 +16,26 @@
     --maroon-pale: #F4CFCF;
     /* Pale maroon */
     --maroon-pinkish: #FDECEC;
-    /* Very light maroon */
+
+    --blue-violet: #8A2BE2;
+    --plum: #DDA0DD;
+    --royal-purple: #6A0DAD;
+    --lavender-blush: #E0B0FF;
+    --magenta: #FF00FF;
+
+    --thistle: #D8BFD8;
+    --lilac: #C8A2C8;
+    --lavender: #B57EDC;
+    --lavender-mist: #E6E6FA;
+    --baby-pink: #F4C2C2;
+
+    --indigo: #4B0082;
+    --purple: #800080;
+    --dark-orchid: #9932CC;
+    --dark-violet: #9400D3;
+    --deep-space-purple: #2E1A47;
+
+
 }
 
 
@@ -33,6 +52,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 0;
+    background-color: var(--maroon-pale);
 }
 
 main {
@@ -41,22 +61,29 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    gap: 10px;
+    /* gap: 10px; */
     height: 100%;
-    padding: 20px;
+    padding: 10px;
     position: relative;
     border: 2px solid var(--color);
-    border-radius: 12px;
+    /* border-radius: 12px; */
     background-color: var(--maroon-pinkish);
 }
 
-h1,
 h5 {
     color: var(--maroon-soft);
-    text-align: center;
 }
 
-main #task-list {
+#upload {
+    color: var(--maroon-soft);
+    /* height: 100%; */
+    width: 100%;
+    width: 1em;
+    border: none;
+    background-color: transparent;
+}
+
+#task-list {
     height: 100%;
     width: 100%;
     list-style: none;
@@ -64,29 +91,29 @@ main #task-list {
     overflow: auto;
     scrollbar-width: none;
     position: relative;
-    border-radius: 6px;
+    /* border-radius: 6px; */
     word-break: break-all;
     word-wrap: break-word;
     /* border: 1px solid #000; */
 }
 
-main #task-list li {
+#task-list li {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    /* padding-top: 5px; */
+    padding-top: 15px;
     position: relative;
     width: 100%;
     /* border: 1px solid #000; */
 }
 
 
-main #task-list>li>input[type="checkbox"],
-main #task-list>li>.delete-button {
+input[type="checkbox"],
+.delete-button {
     margin-top: 5px;
 }
 
-main #task-list>li>.task {
+.task {
     /* display: flex;
     align-items: center; */
     min-height: 21px;
@@ -98,12 +125,18 @@ main #task-list>li>.task {
     overflow-wrap: break-word;
     border-bottom: 1.5px solid var(--maroon-muted);
     border-radius: 0px;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 17px;
     animation: expand 0.4s linear 1 forwards;
 
 
 }
+
+.task:empty::before {
+    content: "Write a task..";
+    color: var(--maroon-light);
+}
+
 
 @keyframes expand {
     0% {
@@ -129,8 +162,8 @@ main #task-list>li>.task {
 
 input[type="checkbox"] {
     /* appearance: none; */
-    height: 14px;
-    width: 14px;
+    height: 15px;
+    width: 15px;
 
     accent-color: var(--maroon-soft);
     /* background-color: var(--maroon-light); */
@@ -146,22 +179,23 @@ input[type="checkbox"] {
 input[type="checkbox"]:not(:checked) {
     background-color: var(--maroon-pinkish);
     border: 1px solid var(--maroon-muted);
-    height: 14px;
-    width: 14px;
-    border-radius: 2px;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
     aspect-ratio: 1;
 
     appearance: none;
 }
+
 input[type="checkbox"]:checked {
     background-color: var(--maroon-soft);
     border: 1px solid var(--maroon-muted);
-    height: 14px;
-    width: 14px;
-    border-radius: 2px;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
     aspect-ratio: 1;
 
-    /* appearance: none; */
+    appearance: none;
 }
 
 .delete-button {
@@ -172,8 +206,8 @@ input[type="checkbox"]:checked {
     font-size: 12px;
     background-color: transparent;
     color: var(--maroon-soft);
-    height: 14px;
-    width: 14px;
+    height: 15px;
+    width: 15px;
     outline: none;
     border: none;
     border-radius: 20px;
@@ -194,6 +228,8 @@ input[type="checkbox"]:checked {
     box-sizing: border-box;
     position: relative;
 }
+
+
 
 input#task-inp {
     border: none;
@@ -218,4 +254,20 @@ input#task-inp::placeholder {
     outline: none;
     /* border-bottom: 1px solid #000; */
     padding: 0px 5px 0 0px;
+}
+
+.page-btn {
+    border: none;
+    outline: none;
+    background-color: var(--maroon-soft);
+    color: var(--maroon-pinkish);
+    padding: .8em;
+    border-radius: 50%;
+    font-size: 0.4em;
+    /* width: fit-content; */
+    box-sizing: border-box;
+    position: relative;
+    line-height: 0;
+    /* text-align: center; */
+    aspect-ratio: 1;
 }
